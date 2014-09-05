@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en" ng-app="myApp">
+<!--<![endif]-->
+<!-- HEAD SECTION -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <title>MAK Issue Track</title>
+    <!--GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!--BOOTSTRAP MAIN STYLES -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!--FONTAWESOME MAIN STYLE -->
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <!--ADDED-->
+    <link href="issueList/css/styleList.css" rel="stylesheet">
+
+    <!--CUSTOM STYLE -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/offcanvas.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <link rel="import" href="noSignupNav.html">
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="issueList/img/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="issueList/img/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="issueList/img/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="issueList/img/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="issueList/img/favicon.png">
+
+    <script type="text/javascript" src="issueList/js/jquery.min.js"></script>
+    <script type="text/javascript" src="issueList/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="issueList/js/scripts.js"></script>
+
+</head>
+<!--END HEAD SECTION -->
+<body >
+<?php session_start(); ?>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="http://www.simplygoodcode.com/wp-content/uploads/2014/07/angular.ng-modules.js" ></script>
+
+<!--NAV Section when signIn has not been done-->
+
+<!-- NAV SECTION -->
+
+
+<div class="navbar navbar-inverse navbar-fixed-top" ng-controller="tasksController">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand1" href="#" style="background: no-repeat center center; color: #fff; font-weight: bold;letter-spacing: 2px;"><img src="assets/img/sample-3-new.png" style="width: 14%; height: 100%;"> MAK TRACK</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="landing.html">HOME</a></li>
+                <li><a href="project.html">PROJECT</a></li>
+                <li><a href="issue.html">ISSUE</a></li>
+                <li><a href="#"><?php if(isset($_SESSION['user'])) {echo ($_SESSION['user']);}?> </a> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--END NAV SECTION -->
+<br>
+<br>
+<div class="container">
+<div class="col-md-12 column">
+<div class="carousel slide" id="carousel-469661">
+    <ol class="carousel-indicators">
+        <li data-slide-to="0" data-target="#carousel-469661">
+        </li>
+        <li data-slide-to="1" data-target="#carousel-469661">
+        </li>
+        <li data-slide-to="2" data-target="#carousel-469661" class="active">
+        </li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item">
+            <img alt="" src="http://lorempixel.com/1600/500/sports/1" />
+            <div class="carousel-caption">
+                <h4>
+                    First Thumbnail label
+                </h4>
+                <p>
+                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img alt="" src="http://lorempixel.com/1600/500/sports/2" />
+            <div class="carousel-caption">
+                <h4>
+                    Second Thumbnail label
+                </h4>
+                <p>
+                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                </p>
+            </div>
+        </div>
+        <div class="item active">
+            <img alt="" src="http://lorempixel.com/1600/500/sports/3" />
+            <div class="carousel-caption">
+                <h4>
+                    Third Thumbnail label
+                </h4>
+                <p>
+                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                </p>
+            </div>
+        </div>
+    </div> <a class="left carousel-control" href="#carousel-469661" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-469661" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>
+</div>
+</div>
+</div>
+
+<script data-require="d3@*" data-semver="3.3.11" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.3.11/d3.js"></script>
+<script type="text/javascript" src="https://rawgit.com/chinmaymk/angular-charts/bower/dist/angular-charts.min.js"></script>
+
+
+<div class="container" ng-controller="tasksController" style="margin-top: 50px;">
+
+
+    <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+            </p>
+
+            <div class="row">
+
+                <div class="list-group" ng-repeat="issueview in issueviews">
+                    <div class="jumbotron" >
+                    <p>{{issueview.UPDATEVALUE}}</p>
+                        <h4>POSTED BY:</h4><p><span>{{issueview.POSTED}}</span></p>
+                    <br>
+                    </div>
+
+                </div>
+
+            </div><!--/row-->
+
+            <?php echo $_SESSION['user']; $_SESSION['id'] = $_GET["akram"];?>
+            <?php echo $_SESSION['id'];?>
+            <div class="row clearfix">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Update By </label>
+                            <input ng-model="issue.id" class="form-control" id="exampleInputEmail1" type="text" value="<?php echo $_SESSION['user'];?>" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Updates</label><input
+                                ng-model="issue.update" class="form-control" id="exampleInputPassword1" type="text"  value="<?php echo $_SESSION['user'];?>" />
+                        </div>
+                        <button type="submit" class="btn btn-default" ng-click="setIssueUpdate(issue)">Submit</button>
+                    </form>
+            </div>
+
+
+        </div><!--/span-->
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+            <div class="list-group">
+                <a href="#" class="list-group-item active">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+            </div>
+        </div><!--/span-->
+    </div><!--/row-->
+
+    <hr>
+
+    <footer>
+        <p>&copy; Company 2014</p>
+    </footer>
+
+</div><!--/.container-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+            <h2>
+                Heading
+            </h2>
+            <p>
+                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+            </p>
+            <p>
+                <a class="btn" href="#">View details »</a>
+            </p>
+        </div>
+        <div class="col-md-4 column">
+            <h2>
+                Heading
+            </h2>
+            <p>
+                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+            </p>
+            <p>
+                <a class="btn" href="#">View details »</a>
+            </p>
+        </div>
+        <div class="col-md-4 column">
+            <h2>
+                Heading
+            </h2>
+            <p>
+                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+            </p>
+            <p>
+                <a class="btn" href="#">View details »</a>
+            </p>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
