@@ -1,0 +1,32 @@
+<div ng-if="authorized">
+    <div class="row">
+        <div class='col-sm-12'>
+        <form class="form-inline">
+            <button type="button" class="btn btn-default" ng-click="createAvatarHandler()">
+              <span class="glyphicon glyphicon-plus"></span> Create Designer
+            </button>
+<!--
+                <label> Select Layer :</label> 
+                <select class="form-control" id="browse_token_layer"
+                        ng-model="layer.option"
+                        ng-change="layerChangedHandler(layer.option)"
+                        data-ng-options="option.displayValue for option in layerOptions">
+                </select>
+-->
+            
+<!--
+                <label> Filter :</label> 
+                <input ng-model="filterOptions.filterText" class="form-control" id="filter-value" type="text" placeholder="Local search"/>
+            
+                <label> Remote Filter :</label> 
+                <input ng-model="universalFilterText" class="form-control" id="filter-value" type="text" placeholder="by 'name' only"/>
+                <button ng-click="remoteSearch(universalFilterText)" type="button" class="btn btn-default">GO</button>
+-->
+        </form>
+        </div>
+    </div>
+    
+    <div class="gridStyle" ng-grid="gridOptions"></div>
+</div>
+
+<script type="text/ng-template" src="templates/modalCreateDesigner.html"></script>

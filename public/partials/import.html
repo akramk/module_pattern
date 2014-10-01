@@ -1,0 +1,110 @@
+<!--tokendata number = {{tokenDataNumber}}-->
+<h2>WareHouse Token Import</h2>
+<form class="form-inline">
+	<label> Token Number :</label> 
+	<input ng-model="tokenDataNumber" class="form-control" id="filter-value" type="number" placeholder="token number" style="width:70px"/>
+	of {{totalTokenNumber}}
+	<button ng-click="applyToken(tokenDataNumber)" type="button" class="btn btn-default">Apply</button>
+</form>
+
+<div class ="row">
+	
+	<div class="col-xs-5">
+		<img ng-src="{{imageUrl}}" width="300px" style="margin-top:10px;">
+	</div>
+	
+	<div class="col-xs-7">
+		Description : {{currentTokenDesc}} <br>
+		Name : {{currentTokenName}}
+		<div class='form-group'>
+					<label for="user_firstname">Type</label>
+					<select class="form-control" id="token_type" name="typeName"
+							ng-model="currentTypeObject"
+							ng-options="option.attributes.name for option in typeOptions" required></select>
+					 <p class="help-block" ng-show="!formValid && tokenForm.typeName.$error.required">Select a Type</p>
+		</div>
+
+		<div class='form-group'>
+				<label for="user_firstname">Super Category</label>
+				<select class="form-control" id="token_superCategory" name="superCategoryName"
+						ng-model="currentSuperCat"
+						ng-options="option.attributes.name for option in superCategoryOptions" required></select>
+				<p class="help-block" ng-show="!formValid && tokenForm.superCategoryName.$error.required">Select a Category</p>
+		</div>
+	</div>
+
+	<div style="margin-top:10px;">
+		<label for="user_firstname">Add to .. </label><br>
+		<button type="button" class="btn btn-default btn" ng-click="uploadToken('MyTokens_Layer1')" ng-disabled="isAdding">
+		  <span class="glyphicon glyphicon-user"></span> Layer1
+		</button>
+		<button type="button" class="btn btn-default btn" ng-click="uploadToken('MyTokens_Layer2')" ng-disabled="isAdding">
+		  <span class="glyphicon glyphicon-user"></span> Layer2
+		</button>
+		<button type="button" class="btn btn-default btn" ng-click="uploadToken('MyTokens_Layer3')" ng-disabled="isAdding">
+		  <span class="glyphicon glyphicon-user"></span> Layer3
+		</button>
+		<button type="button" class="btn btn-default btn" ng-click="uploadToken('MyTokens_Layer4')" ng-disabled="isAdding">
+		  <span class="glyphicon glyphicon-user"></span> Layer4
+		</button>
+
+		<button type="button" class="btn btn-default btn" ng-click="uploadToken('MyTokens_Layer5')" ng-disabled="isAdding">
+		  <span class="glyphicon glyphicon-user"></span> Layer5
+		</button>
+		<button type="button" class="btn btn-default btn" ng-click="skipToken()" ng-disabled="isAdding">
+		  <span class="glyphicon glyphicon-thumbs-down"></span> Nope, Skip
+		</button>
+	</div>
+</div>
+<!--
+NOT YET
+<div id="drop">
+     Drop an XLS file here to see data in CSV.
+</div>
+
+        <fieldset>
+            <legend>Upload File</legend>
+            <div class='row'>
+                <div class='col-sm-5'>
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <span class="btn btn-primary btn-file">
+                                Browse&hellip; 
+                                <input type="file" multiple id="tokenFileUpload">
+                            </span>
+                        </span>
+                        <input type="text" class="form-control" ng-model="uploadFilename" readonly>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+-->
+
+
+<!--
+<canvas id="c" width="500" height="500" style="border:1px solid #aaa"></canvas>
+<script>
+    (function() {
+      var canvas = this.__canvas = new fabric.Canvas('c');
+      fabric.Object.prototype.transparentCorners = false;
+
+      fabric.Image.fromURL('http://files.parsetfss.com/28dae413-0e77-423a-806e-c564243f2d07/tfss-d54f9a10-b341-4950-93a4-8f6c6016df32-token.png ', function(img) {
+        img.scale(0.5).set({
+          left: 100,
+          top: 100,
+          angle: -15
+        });
+        canvas.add(img).setActiveObject(img);
+        canvas.on("after:render", function(){ canvas.calcOffset() });
+      });
+    })();
+</script>
+-->
+
+
+
+
+<!--
+<div>
+    What kind of stuff you would like to import ?
+</div>-->

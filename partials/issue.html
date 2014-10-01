@@ -1,8 +1,0 @@
-<input class="btn btn-primary btn-block" type="submit" ng-click="getIssueUpdate(issue)" id="updateList" value="Update Lists">
-<div class="list-group" ng-repeat="issueupdate in issueupdates">
-    <div ng-if="issueupdate.ID == issue.ID && issue.childrenVisible">
-        <span>{{issue.ID}}</span>
-        <span>{{issueupdate.UPDATEVALUE}}</span>
-        <span>{{issueupdate.POSTED}}</span>
-    </div>
-</div>

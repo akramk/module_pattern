@@ -1,0 +1,63 @@
+    
+    <div class="modal-header">
+        <h3 class="modal-title">{{avatar.name}}
+        </h3>
+    </div>
+
+        <form action="#" method="post" id="token-editor">
+            <fieldset>
+                <div class='row'>
+                    <div class='image-container col-sm-4' id='token-img'>
+                        
+                        <div id="thumb-image">
+                            
+<!--                            <div id="overlay">-->
+<!--                                <a href="{{token.imgUrl}}"><span class="glyphicon glyphicon-download-alt" id="edit-icon"></span></a>-->
+<!--                                <span class="glyphicon glyphicon-pencil" id="edit-icon" ng-click="awesomeEditClick()"></span>-->
+<!--                            </div>-->
+                            <img ng-src="{{avatar.imageUrl}}" id="display-image">
+                        </div>
+                        </span>
+                        
+                    </div>
+                                        
+<!--                <button class="btn btn-danger" type="button" ng-click="awesomeEditClick()">Awesome Editor</button>-->
+                    <div class='col-sm-8'>
+                        <div class='form-group'>
+                            <label>Name</label>
+                            <input ng-model="avatar.name" class="form-control" id="token_name" required="true" size="30" type="text"/>
+                        </div>
+                    </div>
+                    
+                    <div class='col-sm-6'>
+                    
+                        <fieldset>
+                            <label>Replace Image..</label>
+                            <div class='row'>
+                                <div class='col-sm-10'>
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <span class="btn btn-primary btn-file-replace ">
+                                                Browse&hellip; 
+                                                <input type="file" multiple id="avatarFileUploadEdit">
+                                            </span>
+                                        </span>
+                                        <input type="text" class="form-control" ng-model="avatarUploadFilename" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    
+                    </div>
+                    
+                </div>
+
+            </fieldset>
+
+        </form>
+
+    <div class="modal-footer">
+      <button class="btn btn-danger" ng-click="delete()">{{deleteBtnDisplay}}</button>
+      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+      <button class="btn btn-success" ng-click="save()">{{saveBtnDisplay}}</button>
+    </div>

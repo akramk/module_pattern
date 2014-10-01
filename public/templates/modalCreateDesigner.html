@@ -1,0 +1,53 @@
+    
+    <div class="modal-header">
+        <h3 class="modal-title">Create Designer :
+            <font style="font-size:14px;">Let there be light.</font> 
+        </h3>
+    </div>
+
+        <form action="#" method="post" id="token-editor">
+            
+            <fieldset>
+                <div class='row'>
+                    
+                    
+                    <div class='col-sm-6'>
+                        <div class='form-group'>
+                            <label>Designer Name</label>
+                            <input ng-model="designer.name"class="form-control" id="avatar_name" size="30" type="text" />
+                        </div>
+                    </div>
+                    
+<!--
+                    <div class='col-sm-6'>
+                    
+                        <fieldset>
+                            <label>Upload Avatar..</label>
+                            <div class='row'>
+                                <div class='col-sm-10'>
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <span class="btn btn-primary btn-file-replace ">
+                                                Browse&hellip; 
+                                                <input type="file" multiple id="avatarFileUploadCreate">
+                                            </span>
+                                        </span>
+                                        <input type="text" class="form-control" ng-model="avatarUploadFilename" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    
+                    </div>
+-->
+                    
+                </div>
+
+            </fieldset>
+            
+        </form>
+
+    <div class="modal-footer">
+      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+      <button class="btn btn-success" ng-click="create_new_button_clicked || save()" ng-disabled="create_new_button_clicked">{{saveBtnDisplay}}</button>
+    </div>

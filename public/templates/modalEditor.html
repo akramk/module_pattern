@@ -1,0 +1,250 @@
+    
+    <div class="modal-header">
+        <h3 class="modal-title">{{token.name}} :  
+            <font style="font-size:14px;">Wanna edit me ? go ahead.</font> 
+        </h3>
+    </div>
+
+        <form action="#" method="post" id="token-editor">
+            <fieldset>
+                <div class='row'>
+                    <div class='image-container col-sm-4' id='token-img'>
+                        
+                        <div id="thumb-image">
+                            
+                            <div id="overlay">
+                                <a href="{{token.imgUrl}}"><span class="glyphicon glyphicon-download-alt" id="edit-icon"></span></a>
+                                <span class="glyphicon glyphicon-pencil" id="edit-icon" ng-click="awesomeEditClick()"></span>
+<!--                                <span id="edit-icon" ng-click="awesomeEditClick()">+</span>-->
+                            </div>
+                            <img ng-src="{{token.imgUrl}}" id="display-image">
+<!--                            <img ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ng-src="{{token.imgUrl}}" id="display-image">-->
+                        </div>
+                        
+<!--                        <span ng-show="hoverEdit" class="animate-show">-->
+<!--                        <img  class="edit-button" ng-click="awesomeEditClick()" ng-mouseover="hoverIn()"  style="width: 30px; heigth: 30px;" src="https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519584-081_Pen-16.png" alt="Edit">-->
+                        </span>
+                        
+                    </div>
+                                        
+<!--                <button class="btn btn-danger" type="button" ng-click="awesomeEditClick()">Awesome Editor</button>-->
+                    <div class='col-sm-8'>
+                        <div class='form-group'>
+                            <label>Token Name</label>
+                            <input ng-model="token.name" class="form-control" id="token_name" required="true" size="30" type="text"/>
+                        </div>
+                    </div>
+
+<!--
+                    <div class='col-sm-6'>
+                        <div class='form-group'>
+                            <label>Layer</label>
+                            <select class="form-control" id="token_layer"
+                                    ng-model="token.layer"
+                                    ng-options="option.displayValue for option in layerOptions"></select>
+                        </div>
+                    </div>
+-->
+                    
+                    <div class='col-sm-4'>
+                        <div class='form-group'>
+                            <label>Description</label>
+                            <input ng-model="token.desc"class="form-control" id="token_desc" size="30" type="text" />
+                        </div>
+                    </div>
+                    <div class='col-sm-4'>
+                        <div class='form-group'>
+                            <label for="user_password_confirmation">Price</label>
+                            <input ng-model="token.price" class="form-control" id="token_price" size="30" type="number" />
+                        </div>
+                    </div>
+                    
+                    <div class='col-sm-8'>
+                        <div class='form-group'>
+                            <label for="user_password_confirmation">Product Url</label>
+                            <input ng-model="token.productUrl" class="form-control" id="token_productUrl" size="30" type="text" />
+                        </div>
+                    </div>
+                    
+                    <div class='col-sm-6'>
+                    
+                        <fieldset>
+                            <label>Replace Image..</label>
+                            <div class='row'>
+                                <div class='col-sm-10'>
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <span class="btn btn-primary btn-file-replace ">
+                                                Browse&hellip; 
+                                                <input type="file" multiple id="tokenFileUploadEditor">
+                                            </span>
+                                        </span>
+                                        <input type="text" class="form-control" ng-model="uploadFilename" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    
+                    </div>
+                    
+                </div>
+<!--
+                <div class='row'>
+                    <div class='col-sm-6'>
+                        <div class='form-group'>
+                            <label>Description</label>
+                            <input ng-model="token.desc"class="form-control" id="token_desc" size="30" type="text" />
+                        </div>
+                    </div>
+                    <div class='col-sm-6'>
+                        <div class='form-group'>
+                            <label for="user_password_confirmation">Price</label>
+                            <input ng-model="token.price" class="form-control" id="token_price" size="30" type="number" />
+                        </div>
+                    </div>
+                </div>
+-->
+            </fieldset>
+
+            <fieldset>
+
+                <legend>Token Information</legend>
+    <!-- First row -->
+                <div class='row'>
+                    <div class='col-sm-4'>    
+                        <div class='form-group'>
+                            <label for="user_title">Designer</label>
+                            <select class="form-control" id="token_designer"  
+                                    ng-model="token.designer"
+                                    ng-options="option.attributes.name for option in designerOptions"></select>
+    <!--Uncomment for debugging <pre>{{designer | json}}</pre>-->
+                        </div>
+                    </div>
+                    <div class='col-sm-4'>
+                        <div class='form-group'>
+                            <label for="user_firstname">Type</label>
+                            <select class="form-control" id="token_type"
+                                    ng-model="token.type"
+                                    ng-options="option.attributes.name for option in typeOptions"></select>
+                        </div>
+                    </div>
+                    <div class='col-sm-4'>
+                        <div class='form-group'>
+                            <label for="user_lastname">color</label>
+                            <select class="form-control" id="token_color"
+                                    ng-model="token.color"
+                                    ng-options="option.attributes.name for option in colorOptions"></select>
+                        </div>
+                    </div>
+                </div>
+    <!-- First row -->
+
+    <!-- Second row-->
+                <div class='row'>
+                    <div class='col-sm-4'>    
+                        <div class='form-group'>
+                            <label for="user_title">Fabric</label>
+                            <select class="form-control" id="token_fabric"
+                                    ng-model="token.fabric"
+                                    ng-options="option.attributes.name for option in fabricOptions"></select>
+                        </div>
+                    </div>
+                    <div class='col-sm-4'>
+                        <div class='form-group'>
+                            <label for="user_firstname">Season</label>
+                            <select class="form-control" id="token_season"
+                                    ng-model="token.season"
+                                    ng-options="option.attributes.name for option in seasonOptions"></select>
+                        </div>
+                    </div>
+                    <div class='col-sm-4'>
+                        <div class='form-group'>
+                            <label for="user_lastname">Style</label>
+                            <select class="form-control" id="token_style"
+                                    ng-model="token.style"
+                                    ng-options="option.attributes.name for option in styleOptions"></select>
+                        </div>
+                    </div>
+                </div>
+    <!-- Second row-->
+
+    <!-- Second row-->
+                <div class='row'>
+
+                    <div class='col-sm-4'>    
+                        <div class='form-group'>
+                            <label for="user_title">Price Range</label>
+                            <select class="form-control" id="token_priceRange"
+                                    ng-model="token.priceRange"
+                                    ng-options="option.attributes.name for option in priceRangeOptions"></select>
+                        </div>
+                    </div>
+
+                    <div class='col-sm-4'>
+                        <div class='form-group'>
+                            <label for="user_firstname">Super Category</label>
+                            <select class="form-control" id="token_superCategory"
+                                    ng-model="token.superCategory"
+                                    ng-options="option.attributes.name for option in superCategoryOptions"></select>
+                        </div>
+                    </div>
+                    
+                    <div class='col-sm-4'>
+                        <div class='form-group'>
+                            <label for="user_firstname">Approved ?</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="token.approved"> Approved
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            <!-- Second row-->    
+            </fieldset>
+
+<!--
+            <fieldset>
+                <legend>Replace Image</legend>
+                <div class='row'>
+                    <div class='col-sm-5'>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <span class="btn btn-primary btn-file">
+                                    Browse&hellip; 
+                                    <input type="file" multiple id="tokenFileUpload">
+                                </span>
+                            </span>
+                            <input type="text" class="form-control" ng-model="uploadFilename" readonly>
+                        </div>
+                    </div>
+                </div>
+            </fieldset> 
+-->
+
+        </form>
+<!--
+<canvas id="c" width="500" height="500" style="border:1px solid #aaa"></canvas>
+<script>
+    (function() {
+      var canvas = this.__canvas = new fabric.Canvas('c');
+      fabric.Object.prototype.transparentCorners = false;
+
+      fabric.Image.fromURL('img/combyne_logo_800px.png', function(img) {
+        img.scale(0.5).set({
+          left: 100,
+          top: 100,
+          angle: -15
+        });
+        canvas.add(img).setActiveObject(img);
+        canvas.on("after:render", function(){ canvas.calcOffset() });
+      });
+    })();
+</script>
+-->
+    <div class="modal-footer">
+      <button class="btn btn-danger" ng-click="delete_button_clicked || delete()" ng-disabled="delete_button_clicked">{{deleteBtnDisplay}}</button>
+      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+      <button class="btn btn-success" ng-click="save_button_clicked || save()" ng-disabled="save_button_clicked">{{saveBtnDisplay}}</button>
+    </div>

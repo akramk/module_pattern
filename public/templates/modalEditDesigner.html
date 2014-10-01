@@ -1,0 +1,29 @@
+    
+    <div class="modal-header">
+        <h3 class="modal-title">{{designer.name}}
+        </h3>
+    </div>
+
+        <form action="#" method="post" id="token-editor">
+            <fieldset>
+                <div class='row'>
+                                        
+<!--                <button class="btn btn-danger" type="button" ng-click="awesomeEditClick()">Awesome Editor</button>-->
+                    <div class='col-sm-4'>
+                        <div class='form-group'>
+                            <label>Name</label>
+                            <input ng-model="designer.name" class="form-control" id="token_name" required="true" size="30" type="text"/>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </fieldset>
+
+        </form>
+
+    <div class="modal-footer">
+      <button class="btn btn-danger" ng-click="delete_button_clicked || delete()" ng-disabled="delete_button_clicked" ng-disabled="!delete_button_clicked">{{deleteBtnDisplay}}</button>
+      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+      <button class="btn btn-success" ng-click="save()">{{saveBtnDisplay}}</button>
+    </div>

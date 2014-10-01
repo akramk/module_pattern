@@ -1,0 +1,208 @@
+<!--    <button type="button" class="btn btn-default btn-lg" ng-click="logoutHandler()" style="float:right;">Logout</button>-->
+
+<!--<input ng-model="tokenName" class="form-control" id="token_name" required="true" size="30" type="text"/>-->
+<div ng-if="authorized">
+    <div class='row'>
+        <div class='col-sm-6'>
+            <div class='form-group'>
+                <label>Layer</label>
+                <select class="form-control" id="token_layer"
+                        ng-model="token.layer"
+                        ng-change="layerChangedHandler(token.layer)"
+                        ng-options="option.displayValue for option in layerOptions"></select>
+            </div>
+        </div>
+    </div>
+    
+    <form name="tokenForm" action="#" method="post" ng-if="layerSelected">
+        <fieldset>
+            <legend>New Token</legend>
+            <div class='row'>
+                
+                <div class='col-sm-6'>
+                    <div class='form-group' ng-class="{ 'has-error' : tokenForm.tokenName.$invalid && !tokenForm.tokenName.$pristine }">
+                        <label>Token Name</label>
+                        <input ng-model="token.name" class="form-control" name="tokenName" id="token_name" required="true" size="30" type="text" ng-minlength="3" ng-maxlength="30" required/>
+                        <p ng-show="tokenForm.tokenName.$error.minlength" class="help-block">Token Name is too short.</p>
+                        <p ng-show="tokenForm.tokenName.$error.maxlength" class="help-block">Token Name is too long.</p>
+                        <p class="help-block" ng-show="!formValid && tokenForm.tokenName.$error.required">Input Token Name</p>
+
+                    </div>
+                </div>
+                
+                <div class='col-sm-6'>
+                    <div class='form-group'>
+                        <label>Description</label>
+                        <input ng-model="token.desc"class="form-control" id="token_desc" size="30" type="text" />
+                    </div>
+                </div>
+                
+<!--
+                <div class='col-sm-6'>
+                    <div class='form-group'>
+                        <label>Layer</label>
+                        <select class="form-control" id="token_layer"
+                                ng-model="token.layer"
+                                ng-change="layerChangedHandler(token.layer)"
+                                ng-options="option.displayValue for option in layerOptions"></select>
+                    </div>
+                </div>
+-->
+            </div>
+            <div class='row'>
+                <div class='col-sm-6'>
+                    <div class='form-group' ng-class="{ 'has-error' : tokenForm.priceName.$invalid && !tokenForm.priceName.$pristine }">
+                        <label for="user_password_confirmation">Price</label>
+                        <input ng-model="token.price" class="form-control" name ="priceName" id="token_price"  min="-1" required size="30" type="number" />
+                        <p class="help-block" ng-show="!formValid && tokenForm.priceName.$error.required">Input Price of the Token</p>
+                        <p class="help-block" ng-show="!formValid && tokenForm.priceName.$error.number">Please, Input Number</p>
+                    </div>
+                </div>
+                <div class='col-sm-6'>
+                    <div class='form-group' ng-class="{ 'has-error' : tokenForm.urlName.$invalid && !tokenForm.urlName.$pristine }">
+                        <label for="user_password_confirmation">Url</label>
+                        <input ng-model="token.productUrl" class="form-control" id="token_productUrl" name="urlName" required size="50" type="url" />
+                        <p class="help-block" ng-show="!formValid && tokenForm.urlName.$error.url" >Please, Input Valid URL</p>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            
+            <legend>Token Information</legend>
+<!-- First row -->
+            <div class='row'>
+                <div class='col-sm-4'>    
+                    <div class='form-group' ng-class="{error: formValid}">
+                        <label for="user_title">Designer</label>
+                        <select class="form-control" id="token_designer"  name="designerName"
+                                ng-model="token.designer"
+                                ng-options="option.attributes.name for option in designerOptions" required></select>
+<!--                        <p class="help-block" ng-show="formValid && tokenForm.designerName.$error.required">Select a Designer</p>-->
+                        <p class="help-block" ng-show="!formValid && tokenForm.designerName.$error.required">Select a Designer</p>
+<!--Uncomment for debugging <pre>{{designer | json}}</pre>-->
+                    </div>
+                </div>
+                <div class='col-sm-4'>
+                    <div class='form-group' ng-class="{error: formValid}">
+                        <label for="user_firstname">Type</label>
+                        <select class="form-control" id="token_type" name="typeName"
+                                ng-model="token.type"
+                                ng-options="option.attributes.name for option in typeOptions" required></select>
+                         <p class="help-block" ng-show="!formValid && tokenForm.typeName.$error.required">Select a Type</p>
+                    </div>
+                </div>
+                <div class='col-sm-4'>
+                    <div class='form-group' ng-class="{error: formValid}">
+                        <label for="user_lastname">color</label>
+                        <select class="form-control" id="token_color" name="colorName"
+                                ng-model="token.color"
+                                ng-options="option.attributes.name for option in colorOptions" required></select>
+                        <p class="help-block" ng-show="!formValid && tokenForm.colorName.$error.required">Select a Color</p>
+                    </div>
+                </div>
+            </div>
+<!-- First row -->
+            
+<!-- Second row-->
+            <div class='row'>
+                <div class='col-sm-4'>    
+                    <div class='form-group' ng-class="{error: formValid}">
+                        <label for="user_title">Fabric</label>
+                        <select class="form-control" id="token_fabric" name="fabricName"
+                                ng-model="token.fabric"
+                                ng-options="option.attributes.name for option in fabricOptions" required></select>
+                        <p class="help-block" ng-show="!formValid && tokenForm.fabricName.$error.required">Select a Fabric</p>
+                    </div>
+                </div>
+                <div class='col-sm-4'>
+                    <div class='form-group' ng-class="{error: formValid}">
+                        <label for="user_firstname">Season</label>
+                        <select class="form-control" id="token_season" name="seasonName"
+                                ng-model="token.season"
+                                ng-options="option.attributes.name for option in seasonOptions" required></select>
+                        <p class="help-block" ng-show="!formValid && tokenForm.seasonName.$error.required">Select a Season</p>
+                    </div>
+                </div>
+                <div class='col-sm-4'>
+                    <div class='form-group' ng-class="{error: formValid}">
+                        <label for="user_lastname">Style</label>
+                        <select class="form-control" id="token_style" name="styleName"
+                                ng-model="token.style"
+                                ng-options="option.attributes.name for option in styleOptions" required></select>
+                        <p class="help-block" ng-show="!formValid && tokenForm.styleName.$error.required">Select a Select</p>
+                    </div>
+                </div>
+            </div>
+<!-- Second row-->
+        
+<!-- Second row-->
+            <div class='row'>
+                
+                <div class='col-sm-4' ng-class="{error: formValid}">    
+                    <div class='form-group'>
+                        <label for="user_title">Price Range</label>
+                        <select class="form-control" id="token_priceRange" name="priceRangeName"
+                                ng-model="token.priceRange"
+                                ng-options="option.attributes.name for option in priceRangeOptions" required></select>
+                        <p class="help-block" ng-show="!formValid && tokenForm.priceRangeName.$error.required">Select Price Range</p>
+                    </div>
+                </div>
+                
+                <div class='col-sm-4'>
+                    <div class='form-group' ng-class="{error: formValid}">
+                        <label for="user_firstname">Super Category</label>
+                        <select class="form-control" id="token_superCategory" name="superCategoryName"
+                                ng-model="token.superCategory"
+                                ng-options="option.attributes.name for option in superCategoryOptions" required></select>
+                        <p class="help-block" ng-show="!formValid && tokenForm.superCategoryName.$error.required">Select a Category</p>
+                    </div>
+                </div>
+                
+                <div class='col-sm-4'>
+                    <div class='form-group' ng-class="{error: formValid}">
+                        <label for="user_firstname">Approved ?</label>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" ng-model="token.approved"> Approved
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        <!-- Second row-->    
+        </fieldset>
+        
+        <fieldset>
+            <legend>Upload Img</legend>
+            <div class='row'>
+                <div class='col-sm-5'>
+<!--                    <h4>Input Groups</h4>-->
+                    <div class="input-group" ng-class="{ 'has-error' : tokenForm.fileName.$invalid && !tokenForm.fileName.$pristine }">
+                        <span class="input-group-btn">
+                            <span class="btn btn-primary btn-file">
+                                Browse&hellip; 
+                                <input type="file" multiple id="tokenFileUpload" required>
+                            </span>
+                        </span>
+                        <input type="text" class="form-control" ng-model="uploadFilename" name="fileName" readonly required>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class='col-sm-5'>
+                 <p class="help-block" ng-show="!formValid && tokenForm.fileName.$error.required">Input an Image</p>
+                </div>
+            </div>
+        </fieldset>
+        
+        <button type="button" class="btn btn-default btn-lg" ng-click="create_new_button_clicked || saveTokenToParse()" ng-disabled="create_new_button_clicked" style="float: right;">
+          <span class="glyphicon glyphicon-star"></span> {{ creatNewButton }}
+        </button>
+    
+    </form>
+    
+</div>    

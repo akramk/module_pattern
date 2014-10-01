@@ -1,0 +1,80 @@
+
+#combyne-logo {
+	text-align: center;
+	padding-top: 20px;
+}
+
+#token-main {
+	min-width: 970px;
+}
+
+#border-line {
+/*	position: absolute;*/
+/*	left: 50%;*/
+/*	text-align: center;*/
+	padding-top: 30px;
+	float: left;
+}
+
+#token-image {
+	width: 300px;
+	margin-top: 0%;
+	margin-right: -40px;
+	/* margin-left: 9%; */
+	/* margin-left: 120px; */
+	-webkit-filter: drop-shadow(2px 3px 9px rgba(0,0,0,0.4));
+    filter:         drop-shadow(2px 3px 9px rgba(0,0,0,0.4)); 
+/*
+ 	-webkit-filter : drop-shadow(3px 4px 25px rgba(0,0,0,0.5));
+    filter : url("data:image/svg+xml;utf8,<svg height='0' xmlns='http://www.w3.org/2000/svg'><filter id='drop-shadow'><feGaussianBlur in='SourceAlpha' stdDeviation='4'/><feOffset dx='3' dy='4' result='offsetblur'/><feFlood flood-color='rgba(0,0,0,0.5)'/><feComposite in2='offsetblur' operator='in'/><feMerge><feMergeNode/><feMergeNode in='SourceGraphic'/></feMerge></filter></svg>#drop-shadow");
+    -ms-filter : "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+    filter : "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+*/
+
+}
+
+#token-description {
+float: left;
+width: 173px;
+margin-top: 29%;
+margin-right: 30px;
+font-family: Raleway;
+}
+
+#token-description span {
+	margin-left: 40px;
+}
+
+#token-detail {
+	padding-top: 40px;
+}
+
+#token-image-holder {
+/*	text-align: right;*/
+	float: right;
+}
+
+#ipad-app {
+	text-align: center;
+	width: 48.666667%;
+}
+
+#token-name {
+	font-size: 16px;
+	font-weight: 600;
+}
+#table-left{
+	width: 63px;
+}
+
+#token-description-table {
+	font-size: 13px;
+}
+
+#shop-button {
+	padding-top: 18px;
+}
+
+#video-loop {
+	width: 400px;
+}

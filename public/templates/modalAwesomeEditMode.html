@@ -1,0 +1,36 @@
+<div class="modal-dialog modal-sm"> 
+    <div class="modal-header">
+        <h3> Awesome Edit Mode | STILL A PROTOTYPE (Work in progress... )</h3>
+    </div>
+    
+    <canvas id="awesome-editor" width="500" height="500" style="border:1px solid #aaa"></canvas>
+    
+    <div class="modal-footer">
+      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+      <button class="btn btn-success" ng-click="save()">{{saveBtn}}</button>
+    </div>
+</div>
+
+
+<!--    <canvas id="c" width="500" height="500" style="border:1px solid #aaa"></canvas>-->
+
+
+<script>
+
+          var canvas = this.__canvas = new fabric.Canvas('awesome-editor');
+          fabric.Object.prototype.transparentCorners = false;
+
+//          console.log("template has been called");
+//          console.log("{{imageUrlEditor}}");
+          console.log(imageUrlEditor)
+          fabric.Image.fromURL(imageUrlEditor, function(img) {
+//            img.scale(0.5).set({
+//              left: 100,
+//              top: 100,
+//              angle: -15
+//            });
+            canvas.add(img).setActiveObject(img);
+            canvas.on("after:render", function(){ canvas.calcOffset() });
+          });
+
+</script>
