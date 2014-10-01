@@ -1,7 +1,7 @@
 //Define an angular module for our app
 var app = angular.module('myApp', ['angularCharts']);
 
-app.controller('tasksController', function($scope, $http) {
+app.controller('tasksController', function($scope, $window, $http) {
     console.log("APP JS called");
     $scope.chart = [];
 
@@ -80,45 +80,14 @@ app.controller('tasksController', function($scope, $http) {
             console.log($scope.issues);
         });
 
-
-
-
-/*        $http.post("ajax/getIssueCharts.php").success(function(data){
-            $scope.issueCharts = data;
-            console.log("ISSUE CHARTS");
-            console.log($scope.issueCharts);
-            console.log("END ISSUE CHARTS");
-
-
-            for(var i in $scope.issueCharts){
-                var issueTask = $scope.issueCharts[i];
-                console.log(issueTask);
-                var issue = [];
-                for(var j in issueTask){
-                  var child = {};
-                  child.x = j;
-                  child.y = [];
-                  child.y.push(parseInt(issueTask[j]));
-                  issue.push(child);
-                  child = {};
-                }
-                console.log(issue);
-                $scope.chart.push(issue);
-            }
-            console.log("CHART");
-            console.log($scope.chart.length);
-
-            var str = JSON.stringify($scope.chart,undefined,4);
-            console.log(str);
-
-
-        });*/
-
     };
 
     $scope.setIssueUpdate = function (issue) {
         console.log(issue);
         $http.post("ajax/updateIssue.php?"+"&update="+issue.update).success(function(data){
+            console.log("I am here");
+            $window.location.href = 'http://localhost/module_pattern/issueList.html';
+            console.log("Hello again");
         });
     };
 
@@ -265,8 +234,7 @@ app.controller("MainCtrl",function($scope, $http){
 });
 
 
-
-app.controller('myController', function($scope, $http ){
+app.controller('myController', function($scope, $http, $window ){
     /*$scope.products = [
         {'name':'product1', 'selected': false},
         {'name':'product2', 'selected': false},
@@ -285,33 +253,48 @@ app.controller('myController', function($scope, $http ){
         });
     };
 
+
     $scope.selected_products = [];
     $scope.selected_value = [];
     $scope.add = function(prod){
+        console.log("So the value is: "+prod.task+ " and "+ prod.username);
+        //$scope.selected_value.push(prod.task);
         var index = $scope.selected_products.indexOf(prod.username);
+        var TaskIndex = $scope.selected_value.indexOf(prod.task);
+        console.log("Indexer: "+TaskIndex + " User: "+index);
+        if(index > -1) {
+            console.log("Seriously: "+index);
+            //$scope.selected_value.splice(index, 0, prod.task);
+            $scope.selected_value[index] = prod.task;
+        }
         if(index == -1 && prod.selected){
             $scope.selected_products.push(prod.username);
+            console.log("If "+prod.task);
+            //$scope.selected_value.push(prod.task);
         } else if (!prod.selected && index != -1){
+            console.log("Else If "+prod.task);
             $scope.selected_products.splice(index, 1);
+            $scope.selected_value.splice(index, 0);
         }
     };
 
 
     $scope.getList = function(issue){
-
         for(var i in $scope.list){
             var value = $scope.list[i];
-            $scope.selected_value.push(value.value);
+            console.log("THis is:" +value.value);
+            //$scope.selected_value.push(value.value);
         }
 
         console.log("Got it");
         console.log($scope.selected_products);
         console.log($scope.list);
-        console.log($scope.selected_value);
+        console.log("Selected: "+$scope.selected_value);
         console.log(issue);
         $http.post("ajax/createIssue.php?name="+issue.name+"&date="+issue.date+"&description="+issue.description+"&list="+$scope.selected_products+"&value="+$scope.selected_value).success(function(data){
             $scope.createdIssue = data;
             console.log($scope.createdIssue);
+            $window.location.href = 'http://localhost/module_pattern/issueList.html';
         });
 
 

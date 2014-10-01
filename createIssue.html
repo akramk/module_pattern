@@ -46,6 +46,10 @@
     <script type="text/javascript" src="https://rawgit.com/chinmaymk/angular-charts/bower/dist/angular-charts.min.js"></script>
     <script type="text/javascript" src="app/app.js"></script>
 
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="datepicker/js/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" href="datepicker/css/datepicker.css">
+
 </head>
 <!--END HEAD SECTION -->
 <body >
@@ -72,6 +76,7 @@
                 <li><a href="project.html">PROJECT</a></li>
                 <li><a href="issueList.html">ISSUE</a></li>
                 <li><a href="#"><?php if(isset($_SESSION['user'])) {echo ($_SESSION['user']);}?> </a> </li>
+                <li><a href="logout.html"><?php if(isset($_SESSION['user'])) {echo 'LOGOUT';}?> </a> </li>
             </ul>
         </div>
     </div>
@@ -88,32 +93,65 @@
                     <label>Issue Name</label>
                     <input class="form-control" name="issueName" ng-model="issue.name" type="text" />
                 </div>
-                <span> Created by: <?php echo $_SESSION['user']?></span>
+
+                <label><span class="control-label"> Created by:<span style="font-size: 18px;"> <?php echo $_SESSION['user']?></span></span></label>
+
                 <div class="form-group">
+                        <label for="date-picker-2" class="control-label">Due Date</label>
+                        <div class="controls">
+                            <div class="input-group">
+                                <input id="date-picker-2" type="date" class="date-picker form-control" name="dueDate" ng-model="issue.date"/>
+                                <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+                                </label>
+                            </div>
+                        </div>
+                </div>
+
+<!--                <div class="form-group">
                     <label >Due Date</label>
                     <input class="form-control" name="dueDate" ng-model="issue.date" type="date" />
-                </div>
+                </div>-->
                 <div class="form-group">
-                    <label >Description</label>
+                    <label>Description</label>
                     <textarea class="form-control" name="description" ng-model="issue.description " type="text" ></textarea>
                 </div>
                 <div class="form-group">
+                    <label>Assign Contributors in this Issue</label>
                     <div ng-repeat="product in products">
-                        <input type="checkbox" ng-model="product.selected" ng-change="add(product)"/> {{product.username}}<br>
+                        <input type="checkbox" id="user" ng-model="product.selected" ng-change="add(product)"/> {{product.username}}
+                        <input type="text" ng-model="product.task" ng-change="add(product)">
+<!--                    <input type="text" name="url" style='display: none;' class='type' id="type">
+                        <br>
+                        <input type="checkbox" name="facebook" value="product" onclick="showBox(this)"/>
+                        <input type='text' name='facebook_url' ng-id="product.username" style="display:none"/>
+                        <br>-->
                     </div>
-                    <div ng-repeat="item in list">
+
+<!--                    <div ng-repeat="item in list">
                         <input type="text" ng-model="item.value">
-                    </div>
+                    </div>-->
                 </div>
                 <button type="submit" class="btn btn-default" ng-click="getList(issue)">Submit</button>
             </form>
-        </div>
+            </div>
     </div>
 </div>
 
+<script>
+    $(".date-picker").datepicker();
+    console.log("datepicked");
+    $(".date-picker").on("change", function () {
+        var id = $(this).attr("id");
+        var val = $("label[for='" + id + "']").text();
+        $("#msg").text(val + " changed");
+    });
+</script>
 
-
-
+<script type="text/javascript">
+    function showBox(elem){
+        document.getElementById("type").style.display=elem.checked?"block":"none";
+    }
+</script>
 
 
 </body>

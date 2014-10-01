@@ -339,3 +339,9 @@ section article {
     left: -42px;
     top: 47px;
 }
+
+.form-control::-moz-placeholder {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}

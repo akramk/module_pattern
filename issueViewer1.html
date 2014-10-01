@@ -25,7 +25,6 @@
     <link href="issueList/css/styleList.css" rel="stylesheet">
 
     <!--CUSTOM STYLE -->
-    <link href="assets/css/style.css" rel="stylesheet" />
     <link href="assets/css/offcanvas.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -40,6 +39,9 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="issueList/img/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="issueList/img/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="issueList/img/favicon.png">
+
+    <link href="assets/css/style.css" rel="stylesheet" />
+
 
     <script type="text/javascript" src="issueList/js/jquery.min.js"></script>
     <script type="text/javascript" src="issueList/js/bootstrap.min.js"></script>
@@ -72,8 +74,9 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="landing.html">HOME</a></li>
                 <li><a href="project.html">PROJECT</a></li>
-                <li><a href="issue.html">ISSUE</a></li>
+                <li><a href="issueList.html">ISSUE</a></li>
                 <li><a href="#"><?php if(isset($_SESSION['user'])) {echo ($_SESSION['user']);}?> </a> </li>
+                <li><a href="logout.html"><?php if(isset($_SESSION['user'])) {echo 'LOGOUT';}?> </a> </li>
             </ul>
         </div>
     </div>
@@ -146,25 +149,26 @@
             </p>
 
             <div class="row">
-
+                <h3>Updates of the Issue: </h3>
                 <div class="list-group" ng-repeat="issueview in issueviews">
-                    <div class="jumbotron" >
+
+                    <div class="jumbotron specialjum" ng-if="issueview.UPDATEVALUE.length>1">
                     <p>{{issueview.UPDATEVALUE}}</p>
-                        <h4>POSTED BY:</h4><p><span>{{issueview.POSTED}}</span></p>
+                        <p style="font-weight: bold">POSTED BY: {{issueview.POSTED}}</p>
                     <br>
                     </div>
 
-                </div>
 
+                </div>
             </div><!--/row-->
 
-            <?php echo $_SESSION['user']; $_SESSION['id'] = $_GET["akram"];?>
-            <?php echo $_SESSION['id'];?>
+            <?php $_SESSION['id'] = $_POST["akram"];?>
+            <?php ?>
             <div class="row clearfix">
                     <form role="form">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Update By </label>
-                            <input ng-model="issue.id" class="form-control" id="exampleInputEmail1" type="text" value="<?php echo $_SESSION['user'];?>" />
+                            <input ng-model="issue.id" class="form-control" id="exampleInputEmail1" type="text" value="<?php echo $_SESSION['user'];?>" placeholder="<?php echo $_SESSION['user'];?>" readonly/>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Updates</label><input
@@ -177,20 +181,6 @@
 
         </div><!--/span-->
 
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-            <div class="list-group">
-                <a href="#" class="list-group-item active">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-            </div>
-        </div><!--/span-->
     </div><!--/row-->
 
     <hr>

@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta http-equiv="refresh" content="300" >
+    <meta http-equiv="refresh" content="3000" >
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <![endif]-->
@@ -19,20 +19,17 @@
     <!--GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <!--BOOTSTRAP MAIN STYLES -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
     <!--FONTAWESOME MAIN STYLE -->
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
     <!--ADDED-->
-    <link href="issueList/css/styleList.css" rel="stylesheet">
-
     <!--CUSTOM STYLE -->
     <link href="assets/css/style.css" rel="stylesheet" />
-    <link href="assets/css/offcanvas.css" rel="stylesheet">
+    <!--<link href="assets/css/offcanvas.css" rel="stylesheet">-->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <link rel="import" href="noSignupNav.html">
     <![endif]-->
 
     <!-- Fav and touch icons -->
@@ -46,6 +43,9 @@
     <script data-require="d3@*" data-semver="3.3.11" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.3.11/d3.js"></script>
     <script type="text/javascript" src="https://rawgit.com/chinmaymk/angular-charts/bower/dist/angular-charts.min.js"></script>
     <script type="text/javascript" src="app/app.js"></script>
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 
 </head>
 <!--END HEAD SECTION -->
@@ -71,8 +71,9 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="landing.html">HOME</a></li>
                 <li><a href="project.html">PROJECT</a></li>
-                <li><a href="issue.html">ISSUE</a></li>
+                <li><a href="issueList.html">ISSUE</a></li>
                 <li><a href="#"><?php if(isset($_SESSION['user'])) {echo ($_SESSION['user']);}?> </a> </li>
+                <li><a href="logout.html"><?php if(isset($_SESSION['user'])) {echo 'LOGOUT';}?> </a> </li>
             </ul>
         </div>
     </div>
@@ -80,67 +81,61 @@
 <!--END NAV SECTION -->
 <br>
 <br>
-<div class="container">
-<div class="col-md-12 column">
-<div class="carousel slide" id="carousel-469661">
-    <ol class="carousel-indicators">
-        <li data-slide-to="0" data-target="#carousel-469661">
-        </li>
-        <li data-slide-to="1" data-target="#carousel-469661">
-        </li>
-        <li data-slide-to="2" data-target="#carousel-469661" class="active">
-        </li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="item">
-            <img alt="" src="http://lorempixel.com/1600/500/sports/1" />
-            <div class="carousel-caption">
-                <h4>
-                    First Thumbnail label
-                </h4>
-                <p>
-                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                </p>
+<div class="container" style="margin-bottom: 30px;">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="carousel slide" id="carousel-914901">
+                <ol class="carousel-indicators">
+                    <li class="active" data-slide-to="0" data-target="#carousel-914901">
+                    </li>
+                    <li data-slide-to="1" data-target="#carousel-914901">
+                    </li>
+                    <li data-slide-to="2" data-target="#carousel-914901">
+                    </li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img alt="" src="http://lorempixel.com/1600/500/sports/1" />
+                        <div class="carousel-caption">
+                            <h4>
+                                First Thumbnail label
+                            </h4>
+                            <p>
+                                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img alt="" src="http://lorempixel.com/1600/500/sports/2" />
+                        <div class="carousel-caption">
+                            <h4>
+                                Second Thumbnail label
+                            </h4>
+                            <p>
+                                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img alt="" src="http://lorempixel.com/1600/500/sports/3" />
+                        <div class="carousel-caption">
+                            <h4>
+                                Third Thumbnail label
+                            </h4>
+                            <p>
+                                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                            </p>
+                        </div>
+                    </div>
+                </div> <a class="left carousel-control" href="#carousel-914901" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-914901" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div>
-        <div class="item">
-            <img alt="" src="http://lorempixel.com/1600/500/sports/2" />
-            <div class="carousel-caption">
-                <h4>
-                    Second Thumbnail label
-                </h4>
-                <p>
-                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                </p>
-            </div>
-        </div>
-        <div class="item active">
-            <img alt="" src="http://lorempixel.com/1600/500/sports/3" />
-            <div class="carousel-caption">
-                <h4>
-                    Third Thumbnail label
-                </h4>
-                <p>
-                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                </p>
-            </div>
-        </div>
-    </div> <a class="left carousel-control" href="#carousel-469661" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-469661" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-</div>
-</div>
-</div>
+    </div>
 </div>
 
-<script data-require="d3@*" data-semver="3.3.11" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.3.11/d3.js"></script>
-<script type="text/javascript" src="https://rawgit.com/chinmaymk/angular-charts/bower/dist/angular-charts.min.js"></script>
 
 
 <div class="container" ng-controller="tasksController">
-
-
-
-
-
 
     <div class="row row-offcanvas row-offcanvas-right">
 
@@ -179,9 +174,9 @@
                             </div>
 
                         </div>
-                        <form action="issueViewer1.html" method="get" name="form1">
-                            <input type="text" name="akram" value="{{issue.ID}}">
-                            <input type="submit" name="submit" value="submit">
+                        <form action="issueViewer1.html" method="post" name="form1">
+                            <input type="hidden" name="akram" value="{{issue.ID}}">
+                            <button class="btn btn-default" type="submit" name="submit" value="submit">Full View of the Issue</button>
                         </form>
 
 
@@ -207,16 +202,9 @@
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
             <div class="list-group">
-                <a href="#" class="list-group-item active">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
+                <a href="createIssue.html" class="list-group-item active">Create Issue</a>
+                <a href="project.html" class="list-group-item">Create Project</a>
+                <a href="#" class="list-group-item">News</a>
             </div>
         </div><!--/span-->
     </div><!--/row-->
@@ -228,63 +216,6 @@
     </footer>
 
 </div><!--/.container-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="row clearfix">
-        <div class="col-md-4 column">
-            <h2>
-                Heading
-            </h2>
-            <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4 column">
-            <h2>
-                Heading
-            </h2>
-            <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4 column">
-            <h2>
-                Heading
-            </h2>
-            <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-    </div>
-
-
-</div>
-
-
-
-
 
 
 </body>
