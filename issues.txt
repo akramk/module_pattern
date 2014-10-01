@@ -1,2 +1,0 @@
-1.login not working. javascript working. username password fetch successful.
-2.signup,signin still visible. PROJECT ISSUE menu visible
